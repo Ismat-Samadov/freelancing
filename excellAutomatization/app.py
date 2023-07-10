@@ -1,13 +1,20 @@
 import openpyxl
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
 
-# Open the source Excel file
-source_file_path = "test_1.xlsx"
-source_workbook = openpyxl.load_workbook(source_file_path)
-source_sheet = source_workbook.active
+# Create the Tkinter root window
+root = Tk()
+root.withdraw()  # Hide the root
 
 # Create a new workbook
 new_workbook = openpyxl.Workbook()
 new_sheet = new_workbook.active
+
+# Open the source Excel file
+source_file_path=askopenfilename()
+# source_file_path = "test_1.xlsx"
+source_workbook = openpyxl.load_workbook(source_file_path)
+source_sheet = source_workbook.active
 
 # Copy the column name separately
 column_name = source_sheet.cell(row=1, column=1).value
@@ -18,7 +25,7 @@ for row in source_sheet.iter_rows(min_row=2, values_only=True):
     new_sheet.cell(row=new_sheet.max_row + 1, column=1, value=row[0])
 
 # Save the new workbook
-new_file_path = "test_2.xlsx"
+new_file_path = "test_4.xlsx"
 new_workbook.save(new_file_path)
 
 # Close the workbooks
