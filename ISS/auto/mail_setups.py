@@ -4,7 +4,7 @@ while True:
     time.sleep(2)
     MY_EMAIL = "ismetsemedov@gmail.com"
     MY_PASSWORD = "lmjareknmmweotsp"
-    TO_EMAIL= "Ismat.Samadov@kapitalbank.az"
+    TO_EMAIL= "ismetsemedli@mail.ru"
     connection = smtplib.SMTP("smtp.gmail.com") # port=587
     connection.starttls()
     connection.login(MY_EMAIL, MY_PASSWORD)
